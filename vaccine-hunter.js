@@ -21,14 +21,15 @@ const hunt = async () => {
   }
 }
 
-cron.schedule('*/5  * * * *', function () {
+cron.schedule('*/1  * * * *', function () {
   console.log('---------------------')
   console.log('Running Hunter')
   
   hunt().then((res) => {
     console.log('Checked ', new Date().toISOString())
     if (res) {
-      exec('say vaccine found in ' + res)
+      exec('say vaccine found')
+      console.log('vaccine found in ' + res)
     } else {
       // exec('say no vaccine found yet')
     }
